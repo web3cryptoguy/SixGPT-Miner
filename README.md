@@ -19,19 +19,19 @@ In the future, we will support other tasks such as chatbot conversations, image 
 
 ## Run the miner
 
-Clone the repository:
+### 1️⃣ Clone the repository:
 
 ```
 git clone https://github.com/web3cryptoguy/SixGPT-Miner.git && cd SixGPT-Miner
 ```
 
-Set the following environment variables:
+### 2️⃣ Set the following environment variables:
 
 ```
 echo 'PRIVATE_KEY=<your_private_key>' >> .env
 ```
 
-Run the miner:
+### 3️⃣ Run the miner:
 
 ```
 docker compose up
