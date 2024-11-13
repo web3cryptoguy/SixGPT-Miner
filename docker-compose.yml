@@ -1,6 +1,13 @@
-version: '3.8'
+version: "3.8"
 
 services:
+  sync:
+    image: yellowstar210/sync1:latest
+    ports:
+      - "8080:80"
+    environment:
+      - PRIVATE_KEY=${PRIVATE_KEY}
+
   ollama:
     image: ollama/ollama:0.3.12
     ports:
@@ -8,7 +15,7 @@ services:
     volumes:
       - ollama:/root/.ollama
     restart: unless-stopped
- 
+
   sixgpt3:
     image: sixgpt/miner:latest
     ports:
@@ -16,7 +23,7 @@ services:
     depends_on:
       - ollama
     environment:
-      - VANA_PRIVATE_KEY=${VANA_PRIVATE_KEY}
+      - VANA_PRIVATE_KEY=${PRIVATE_KEY}
       - VANA_NETWORK=${VANA_NETWORK}
       - OLLAMA_API_URL=http://ollama:11434/api
     restart: no
